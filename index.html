@@ -189,6 +189,9 @@ details.tips li{margin:4px 0}
 footer{text-align:center;color:var(--soft);font-size:13px;padding:10px 0 30px}
 
 /* ===== responsive ===== */
+.hole{container-type:inline-size}
+.mole{white-space:nowrap;font-size:min(clamp(18px,3.8vw,40px),calc(68cqw / var(--n,2)));letter-spacing:0;line-height:1;padding-top:12%}
+.seg button,.tog,.btn,.brand>div{white-space:nowrap}
 .opt,.mi,.mc .fa,.read,.chip i,.target .read{word-break:keep-all;overflow-wrap:normal}
 button,.chip,.tile,.mi,.mc,.hole,.opt{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .stage button,.stage .tile{-webkit-user-select:none;user-select:none}
@@ -720,7 +723,7 @@ function gMole(A){
       A.querySelector('#sc').textContent=score;later(()=>{h.classList.remove('up','hit','miss')},250)});
     function spawn(){const free=st.map((s,i)=>s.up?-1:i).filter(i=>i>=0);if(!free.length)return;const i=pick(free);
       const tUp=st.some(s=>s.up&&s.w===target);const w=(!tUp&&Math.random()<.5)?target:pick(pool.filter(p=>p!==target).length?pool.filter(p=>p!==target):pool);
-      st[i]={up:true,w,t:0};holes[i].querySelector('.mole').textContent=w.text;holes[i].classList.add('up');
+      st[i]={up:true,w,t:0};{const m=holes[i].querySelector('.mole');m.textContent=w.text;m.style.setProperty('--n',Math.max(2,[...w.text].length))}holes[i].classList.add('up');
       st[i].t=later(()=>{if(st[i].up){st[i].up=false;holes[i].classList.remove('up')}},1700+Math.random()*700)}
     spawn();S.timers.push(setInterval(spawn,700));
     const t0=Date.now();S.timers.push(setInterval(()=>{left=Math.max(0,T-(Date.now()-t0)/1000);A.querySelector('#tl').textContent=Math.ceil(left);A.querySelector('#bar').style.width=left/T*100+'%';
@@ -829,4 +832,5 @@ setMode(S.mode);renderScore();
 </script>
 </body>
 </html>
+
 
