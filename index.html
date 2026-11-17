@@ -2,8 +2,9 @@
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>華語課堂小遊戲｜貼上詞語就能玩</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fbf6ec">
+<title>興嘉語文課堂小遊戲｜貼上詞語就能玩</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -186,14 +187,131 @@ details.tips li{margin:4px 0}
 .confetti{position:fixed;top:-10px;width:10px;height:14px;z-index:70;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
 footer{text-align:center;color:var(--soft);font-size:13px;padding:10px 0 30px}
+
+/* ===== responsive ===== */
+.opt,.mi,.mc .fa,.read,.chip i,.target .read{word-break:keep-all;overflow-wrap:normal}
+button,.chip,.tile,.mi,.mc,.hole,.opt{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.stage button,.stage .tile{-webkit-user-select:none;user-select:none}
+header{padding-top:env(safe-area-inset-top)}
+.hd,main{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+main{padding-bottom:max(60px,env(safe-area-inset-bottom))}
+.big{font-size:clamp(48px,min(11vw,15vh),128px)}
+.stage{min-height:calc(100dvh - 170px)}
+/* hover only where a mouse exists */
+@media (hover:none){
+  .gcard:hover{transform:none;border-color:var(--line)}
+  .opt:hover{border-color:var(--line)}
+  .gcard:active{transform:scale(.98);border-color:var(--accent)}
+}
+/* fit square-ish boards to the screen height */
+.mem{max-width:min(760px,calc((100dvh - 250px)*1.33))}
+.holes{max-width:min(640px,calc((100dvh - 300px)*1.25))}
+.wheel{max-width:min(520px,calc(100dvh - 220px))}
+.mgrid{max-width:880px}
+/* tablet */
+@media (max-width:1024px){
+  .games{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+  .opts{max-width:100%}
+}
+/* phone */
+@media (max-width:640px){
+  body{font-size:15px}
+  .hd{gap:6px;padding-top:8px;padding-bottom:8px;flex-wrap:nowrap}
+  .brand{font-size:15px;gap:7px;min-width:0}
+  .brand>div:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand small{display:none}
+  .brand .seal{width:32px;height:32px;font-size:20px;flex:none}
+  .seg button{padding:5px 10px;font-size:14px}
+  .tog{padding:0;width:36px;height:36px;justify-content:center;flex:none}
+  .icon-btn{width:36px;height:36px;flex:none}
+  #fsBtn{display:none}
+  .tl{display:none}
+  main{padding-top:12px}
+  .intro{padding:18px}
+  .intro .feat{display:none}
+  textarea{min-height:120px;font-size:18px}
+  .games{grid-template-columns:1fr 1fr;gap:8px}
+  .gcard{flex-direction:column;gap:6px;padding:12px}
+  .gcard .em{font-size:28px}
+  .gcard b{font-size:16px}
+  .gcard span{font-size:12.5px}
+  .gbar{gap:6px;margin-bottom:10px}
+  .gbar .btn{padding:8px 12px}
+  .gbar h2{font-size:17px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #gameScore{order:5;width:100%}
+  #gameScore .tm{flex:1;justify-content:space-between}
+  .tm b{font-size:22px}
+  .stage{padding:14px 12px;min-height:calc(100dvh - 190px);border-radius:14px}
+  .qtop{font-size:14px}
+  .prompt{margin:4px 0 14px}
+  .opts{gap:8px}
+  .opt{font-size:clamp(18px,5.4vw,24px);min-height:62px;padding:10px 6px;border-radius:14px}
+  .opts.five{grid-template-columns:repeat(5,1fr);gap:6px}
+  .opts.five .opt{padding:8px 2px;min-height:64px}
+  .opts.five .opt small{font-size:11px}
+  .mgrid{gap:8px 10px}
+  .mcol{gap:8px}
+  .mi{padding:8px 4px;min-height:54px;font-size:clamp(15px,4.4vw,22px);border-radius:12px}
+  .mi.w{font-size:clamp(22px,6.4vw,30px)}
+  .mem{gap:6px}
+  .mc .fa{font-size:clamp(11px,3.3vw,16px);border-width:2px;border-radius:10px}
+  .mc .fa.w{font-size:clamp(18px,5.6vw,26px)}
+  .mc .ba{border-radius:10px}
+  .slot{min-width:50px;height:58px;font-size:26px;border-radius:12px}
+  .slots{gap:6px;margin-bottom:16px;min-height:58px}
+  .tiles{gap:7px}
+  .tile{min-width:52px;height:54px;font-size:24px;padding:0 9px;border-radius:12px}
+  .tile.wide{font-size:clamp(20px,6vw,28px);min-height:54px;padding:8px 12px}
+  .answer{min-height:70px;padding:8px;gap:6px}
+  .target{padding:4px 14px}
+  .mole-top{gap:10px}
+  .holes{gap:6px}
+  .wheel .ptr{border-left-width:13px;border-right-width:13px;border-top-width:24px}
+  .wres{padding:10px 4px}
+  .bigbtn{font-size:20px;padding:13px 28px}
+  .after .msg{font-size:17px}
+  .ovc{padding:22px 18px}
+  .share{padding:14px}
+}
+/* small phones */
+@media (max-width:360px){
+  .opts:not(.five){grid-template-columns:1fr}
+  .brand>div:last-child{display:none}
+}
+/* landscape phones / short screens */
+@media (max-height:520px) and (orientation:landscape){
+  header{position:static}
+  .stage{min-height:auto}
+  .big{font-size:clamp(40px,14vh,80px)}
+  .prompt{margin:0 0 10px}
+  .opts{grid-template-columns:repeat(4,1fr)}
+  .opts.five{grid-template-columns:repeat(5,1fr)}
+  .opt{min-height:52px}
+  .mem{max-width:min(760px,calc((100dvh - 120px)*1.33))}
+  .holes{max-width:min(640px,calc((100dvh - 150px)*1.25))}
+  .wheelwrap{grid-template-columns:auto 1fr}
+  .wheel{width:calc(100dvh - 120px);max-width:calc(100dvh - 120px)}
+  .hero{grid-template-columns:1fr 1fr}
+}
+/* tablet landscape & desktop: wheel beside result */
+@media (min-width:821px){.wheelwrap{grid-template-columns:minmax(260px,auto) 1fr}}
+/* big projector screens */
+@media (min-width:1600px){
+  main,.hd{max-width:1480px}
+  .opts{max-width:1040px}
+  .opt{font-size:40px;min-height:96px}
+  .mi{font-size:34px}.mi.w{font-size:46px}
+  .tile{min-width:80px;height:80px;font-size:38px}
+  .slot{min-width:80px;height:86px;font-size:40px}
+}
 </style>
 </head>
 <body>
 <header>
   <div class="hd">
-    <div class="brand" id="toHome"><div class="seal">華</div><div>華語課堂小遊戲<small>貼上詞語就能玩</small></div></div>
+    <div class="brand" id="toHome"><div class="seal">語</div><div>興嘉語文課堂小遊戲<small>貼上詞語就能玩</small></div></div>
     <div class="seg" id="modeSeg"><button data-m="py">拼音</button><button data-m="zy">注音</button></div>
-    <button class="tog" id="teamTog">⚔️ 紅藍對抗</button>
+    <button class="tog" id="teamTog">⚔️<span class="tl"> 紅藍對抗</span></button>
     <button class="icon-btn" id="sndTog" title="音效">🔔</button>
     <button class="icon-btn" id="fsBtn" title="全螢幕投影">⛶</button>
   </div>
@@ -252,9 +370,9 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:10px 0 30px}
   <!-- GAME -->
   <section id="game" class="hidden">
     <div class="gbar">
-      <button class="btn" id="backBtn">← 換遊戲</button>
+      <button class="btn" id="backBtn">←<span class="tl"> 換遊戲</span></button>
       <h2 id="gTitle"></h2>
-      <button class="btn ghost" id="restartBtn">↻ 重玩</button>
+      <button class="btn ghost" id="restartBtn">↻<span class="tl"> 重玩</span></button>
       <div class="score" id="gameScore"></div>
     </div>
     <div class="card stage" id="stage"></div>
@@ -527,8 +645,11 @@ function gParts(A){
 function chunkSent(s){const core=s.replace(/[。！？!?]+$/,'');
   if(/[\s\/｜|]/.test(core.trim()))return core.split(/[\s\/｜|]+/).map(x=>x.replace(/[，,、；;：:「」]/g,'')).filter(Boolean);
   const text=core.replace(/[^\u3400-\u9fff\uf900-\ufaff]/g,'');const vocab=W().map(w=>w.text).filter(v=>v.length>1).sort((a,b)=>b.length-a.length);
-  const out=[];let buf='',i=0;while(i<text.length){const v=vocab.find(v=>text.startsWith(v,i));if(v){if(buf){out.push(buf);buf=''}out.push(v);i+=v.length}else{buf+=text[i++];if(buf.length>=2){out.push(buf);buf=''}}}
-  if(buf)out.push(buf);while(out.length>8){let mi=0;for(let k=1;k<out.length-1;k++)if(out[k].length+out[k+1].length<out[mi].length+out[mi+1].length)mi=k;out.splice(mi,2,out[mi]+out[mi+1])}return out}
+  const out=[];let buf='',i=0;
+  const seg=s=>{if(!s)return;let parts=null;try{parts=[...new Intl.Segmenter('zh-TW',{granularity:'word'}).segment(s)].map(x=>x.segment).filter(x=>CJK_RE.test(x))}catch(e){}
+    if(!parts||!parts.length){parts=[];for(let k=0;k<s.length;k+=2)parts.push(s.slice(k,k+2))}out.push(...parts)};
+  core.split(/[，,、；;：:]+/).forEach(cl=>{const t=cl.replace(/[^\u3400-\u9fff\uf900-\ufaff]/g,'');buf='';i=0;
+    while(i<t.length){const v=vocab.find(v=>t.startsWith(v,i));if(v){seg(buf);buf='';out.push(v);i+=v.length}else buf+=t[i++]}seg(buf)});while(out.length>7){let mi=0;for(let k=1;k<out.length-1;k++)if(out[k].length+out[k+1].length<out[mi].length+out[mi+1].length)mi=k;out.splice(mi,2,out[mi]+out[mi+1])}return out}
 function gOrder(A){
   let items;const useS=S.sents.length>0;
   if(useS)items=shuffle(S.sents.map(s=>({s,c:chunkSent(s),end:(s.match(/[。！？!?]+$/)||['。'])[0]})).filter(x=>x.c.length>=3));
@@ -708,3 +829,4 @@ setMode(S.mode);renderScore();
 </script>
 </body>
 </html>
+
